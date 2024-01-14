@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Router Outlet</title>
+    <style>
+      /* Basic CSS for demonstration */
+      #app {
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+      .route-content {
+        display: none;
+      }
+      .active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li><a href="#" onclick="showRoute('home')">Home</a></li>
+        <li><a href="#" onclick="showRoute('about')">About</a></li>
+        <li><a href="#" onclick="showRoute('contact')">Contact</a></li>
+      </ul>
+      <div id="outlet">
+        <div id="home" class="route-content active">
+          <h2>Home Page</h2>
+          <p>Welcome to the home page!</p>
+        </div>
+        <div id="about" class="route-content">
+          <h2>About Page</h2>
+          <p>Learn more about us here.</p>
+        </div>
+        <div id="contact" class="route-content">
+          <h2>Contact Page</h2>
+          <p>Contact us here.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showRoute(route) {
+        const routeContent = document.querySelectorAll(".route-content");
+
+        routeContent.forEach((content) => {
+          content.classList.remove("active");
+        });
+
+        document.getElementById(route).classList.add("active");
+      }
+    </script>
+  </body>
+</html>
